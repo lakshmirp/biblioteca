@@ -14,12 +14,10 @@ public class Program {
     }
 
 
-    public static void print_menu() {
-        System.out.println("*                  Choose an option from the menu below                     *\n");
-        System.out.println("*                  1-> View The Books Catalog                               *");
-        System.out.println("*                  2-> Reserve A book                                       *");
-        System.out.println("*                  3-> Check Your Library Number                            *");
-        System.out.println("*                  4-> Exit                                                 *\n");
+    public static String print_menu() {
+        return "1->View The List Of Books\n2->Reserve Book\n3->Check Library Number\n4:Exit";
+
+
     }
 
     public static String print_welcome() {
