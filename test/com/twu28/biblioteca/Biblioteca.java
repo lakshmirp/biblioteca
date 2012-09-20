@@ -3,7 +3,7 @@ package com.twu28.biblioteca;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import static java.lang.System.*;
+
 
 public class Biblioteca {
 
@@ -33,8 +33,10 @@ public class Biblioteca {
 
         else if(input==3)
             check_library_number();                                            //allows to check library number
-        else
-            exit(0);
+        else{
+            System.out.println("Incorrect Input");
+        }
+
         }
 
     }
