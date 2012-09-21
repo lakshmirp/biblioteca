@@ -15,7 +15,7 @@ public class DisplayTest {
         System.setOut(new PrintStream(outputStream));
         Display display = new Display();
         display.print_welcome();
-        Assert.assertEquals("Welcome To Bangalore Public Library",outputStream.toString());
+        Assert.assertEquals("Welcome To Bangalore Public Library\n",outputStream.toString());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class DisplayTest {
         System.setOut(new PrintStream(outputStream));
         Display display = new Display();
         display.reserve_book_first_line();
-        Assert.assertEquals("Enter the number of the book you want to reserve",outputStream.toString());
+        Assert.assertEquals("Enter the number of the book you want to reserve\n",outputStream.toString());
 
     }
 
@@ -76,6 +76,6 @@ public class DisplayTest {
         System.setOut(new PrintStream(outputStream));
         Display display = new Display();
         display.check_library_number();
-        Assert.assertEquals("Please Talk To Your Librarian",outputStream.toString());
+        Assert.assertEquals("Please Talk To Your Librarian\n",outputStream.toString());
     }
 }

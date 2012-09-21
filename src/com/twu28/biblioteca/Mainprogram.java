@@ -23,8 +23,7 @@ public class Mainprogram {
     }
 
     public void executelogic() {
-        String input = inputoutputinterface.readLine();
-        int choice = Integer.parseInt(input);
+        int choice = Integer.parseInt(inputoutputinterface.getoption());
         if(choice==1){
             display.print_display_books_first_line();
             display.display_of_books(bookManager);
