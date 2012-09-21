@@ -48,7 +48,7 @@ public class DisplayTest {
         System.setOut(new PrintStream(outputStream));
         Display display = new Display();
         display.reserve_book_first_line();
-        Assert.assertEquals("Enter the name of the book you want to reserve",outputStream.toString());
+        Assert.assertEquals("Enter the number of the book you want to reserve",outputStream.toString());
 
     }
 
