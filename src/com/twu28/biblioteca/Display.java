@@ -2,7 +2,9 @@ package com.twu28.biblioteca;
 
 public class Display {
 
-   public void print_welcome(){
+    inputoutputinterface inputoutputinterface = new userinput();
+
+    public void print_welcome(){
        System.out.print("Welcome To Bangalore Public Library");
    }
 
@@ -24,18 +26,19 @@ public class Display {
     }
 
     public void reserve_book_first_line(){
-        System.out.print("Enter the number of the book you want to reserve");
+        System.out.print("Enter the name of the book you want to reserve");
     }
 
-    public void reserve_book(Book book,BookManager bookManager){
+    public Boolean reserve_book(Book book,BookManager bookManager){
         if(bookManager.reserve_book(book))
-            System.out.print("Thank You!Enjoy The Book");
+            return true;
         else
-            System.out.print("Sorry!We Dont Have That Book Yet");
+            return false;
 
     }
 
     public void check_library_number(){
         System.out.print("Please Talk To Your Librarian");
     }
+
 }

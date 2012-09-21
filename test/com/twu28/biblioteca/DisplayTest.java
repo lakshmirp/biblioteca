@@ -48,7 +48,7 @@ public class DisplayTest {
         System.setOut(new PrintStream(outputStream));
         Display display = new Display();
         display.reserve_book_first_line();
-        Assert.assertEquals("Enter the number of the book you want to reserve",outputStream.toString());
+        Assert.assertEquals("Enter the name of the book you want to reserve",outputStream.toString());
 
     }
 
@@ -59,8 +59,7 @@ public class DisplayTest {
         Book book = new Book(1,"Complete Reference-Java");
         BookManager bookManager = new BookManager();
         bookManager.addnew(book);
-        display.reserve_book(book,bookManager);
-        Assert.assertEquals("Thank You!Enjoy The Book",outputStream.toString());
+        Assert.assertEquals((Object) true,display.reserve_book(book,bookManager));
     }
 
     @Test
@@ -69,8 +68,7 @@ public class DisplayTest {
         Display display = new Display();
         Book book = new Book(1,"Complete Reference-Java");
         BookManager bookManager = new BookManager();
-        display.reserve_book(book,bookManager);
-        Assert.assertEquals("Sorry!We Dont Have That Book Yet",outputStream.toString());
+        Assert.assertEquals((Object) false,display.reserve_book(book, bookManager));
     }
 
     @Test

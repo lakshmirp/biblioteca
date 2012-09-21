@@ -5,6 +5,10 @@ public class Book {
     int BookNumber;
     Boolean Issued;
 
+    public Book(String Title){
+        this.BookTitle = Title;
+        this.Issued = false;
+    }
     public Book(int Number,String Title){
         this.BookTitle = Title;
         this.BookNumber = Number;
