@@ -44,6 +44,18 @@ public class DisplayTest {
     }
 
     @Test
+    public void test_movies_display(){
+        System.setOut(new PrintStream(outputStream));
+        Display display = new Display();
+        display.display_movies_first_line();
+        Assert.assertEquals("Here Are The List Of Movies\n",outputStream.toString());
+        Moviemanager moviemanager = new Moviemanager();
+        moviemanager.addmovie();
+        display.display_movies(moviemanager);
+        Assert.assertEquals(moviemanager.movie_display().toString(),outputStream.toString());
+    }
+
+    @Test
     public void test_book_reserve(){
         System.setOut(new PrintStream(outputStream));
         Display display = new Display();

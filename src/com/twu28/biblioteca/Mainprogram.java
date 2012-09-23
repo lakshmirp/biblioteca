@@ -4,7 +4,7 @@ import static java.lang.System.exit;
 
 public class Mainprogram {
 
-    inputoutputinterface inputoutputinterface = new userinput();
+    inputoutputinterface inputoutputinterface = new userinputstub();
     Display display = new Display();
     Book book1 = new Book(1,"First Book");
     Book book2 = new Book(2,"Second Book");

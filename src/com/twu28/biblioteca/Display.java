@@ -22,7 +22,16 @@ public class Display {
 
     public void display_of_books(BookManager bookManager){
         for(Book book:bookManager.books_display())
-            inputoutputinterface.println(book.BookTitle);
+            inputoutputinterface.println(book.display_book_title());
+    }
+
+    public void display_movies_first_line(){
+        inputoutputinterface.println("Here Are The List Of Movies");
+    }
+
+    public void display_movies(Moviemanager moviemanager){
+        for(Movie movie:moviemanager.movie_display())
+            inputoutputinterface.println(movie.display_movie_details());
     }
 
     public void reserve_book_first_line(){
