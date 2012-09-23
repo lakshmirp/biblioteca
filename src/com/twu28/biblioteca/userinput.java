@@ -8,7 +8,7 @@ public class userinput implements inputoutputinterface{
 
     @Override
     public void println(String string) {
-
+         System.out.println(string);
     }
 
     @Override
