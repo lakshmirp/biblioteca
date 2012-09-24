@@ -2,7 +2,7 @@ package com.twu28.biblioteca;
 
 public class Display {
 
-    inputoutputinterface inputoutputinterface = new userinput();
+    inputoutputinterface inputoutputinterface = new userinputstub();
 
     public void print_welcome(){
        inputoutputinterface.println("Welcome To Bangalore Public Library");

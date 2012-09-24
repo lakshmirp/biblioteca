@@ -26,4 +26,15 @@ public class userinput implements inputoutputinterface{
     public void setoption(String option) {
 
     }
+
+    @Override
+    public String getusername() {
+        return scan.next();
+    }
+
+    @Override
+    public String getpassword() {
+        return scan.next();
+    }
+
 }

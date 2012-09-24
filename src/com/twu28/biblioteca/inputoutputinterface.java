@@ -6,4 +6,6 @@ public interface inputoutputinterface {
     public String readLine();
     public String getoption();
     public void setoption(String option);
+    public String getusername();
+    public String getpassword();
 }
