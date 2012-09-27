@@ -1,7 +1,6 @@
 package com.twu28.biblioteca;
 
-public class ConsoleStub implements Console{
-
+public class FakeConsole implements Console{
     @Override
     public void println(String string) {
 

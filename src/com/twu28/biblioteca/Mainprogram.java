@@ -5,8 +5,10 @@ import java.util.HashMap;
 public class Mainprogram {
 
     static BookList bookList = new BookList();
-    static Console console = new ConsoleStub();
+    static Console console = new FakeConsole();
     static HashMap<String,Runnable> optionMap = new HashMap<String, Runnable>();
+
+
 
     public static void main(String[] args) {
         bookList.addNew(new Book("1","First Book"));
@@ -14,6 +16,7 @@ public class Mainprogram {
         bookList.addNew(new Book("3", "Third Book"));
 
         printWelcome();
+
         printMenu();
 
         String option = console.readLine();
@@ -48,6 +51,8 @@ public class Mainprogram {
         console.println("5:Exit");
     }
 
-
+    public void setConsole(Console console){
+        this.console = console;
+    }
 
 }
