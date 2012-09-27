@@ -2,29 +2,32 @@ package com.twu28.biblioteca;
 
 public class UserAccount {
 
-    String LibraryNumber;
-    String Password;
-    String Name;
-    String EmailId;
-    String PhoneNumber;
+    private String libraryNumber;
+    private String password;
+    private String name;
+    private String emailId;
+    private String phoneNumber;
 
-    UserAccount(String librarynumber,String password){
-        this.LibraryNumber = librarynumber;
-        this.Password = password;
-        this.Name = "";
-        this.EmailId = "";
-        this.PhoneNumber = "";
+    UserAccount(String librarynum,String passwd){
+        this.libraryNumber = librarynum;
+        this.password = passwd;
     }
 
-    UserAccount(String librarynumber,String password,String name,String emailId,String phoneNumber){
-        this.LibraryNumber = librarynumber;
-        this.Password = password;
-        this.Name = name;
-        this.EmailId = emailId;
-        this.PhoneNumber = phoneNumber;
+    public String getName(){
+        return name;
     }
 
-    public String display_user_details(){
-        return this.LibraryNumber+"\t"+this.Password+"\t"+this.Name+"\t"+this.EmailId+"\t"+this.PhoneNumber+"\n";
+    public String getEmailId(){
+        return emailId;
     }
+
+    public String getPhoneNumber(){
+        return phoneNumber;
+    }
+
+    public String returnUserDetails(){
+        return this.libraryNumber+"\t"+this.password+"\t"+this.name+"\t"+this.emailId+"\t"+this.phoneNumber+"\n";
+    }
+
+
 }

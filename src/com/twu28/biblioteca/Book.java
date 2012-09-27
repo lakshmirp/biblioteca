@@ -1,28 +1,31 @@
 package com.twu28.biblioteca;
 
 public class Book {
-    String BookTitle;
-    int BookNumber;
-    Boolean Issued;
+    private String bookTitle;
+    private String bookIsbn;
+    private Boolean issued;
 
-    public Book(String Title){
-        this.BookTitle = Title;
-        this.Issued = false;
-    }
-    public Book(int Number,String Title){
-        this.BookTitle = Title;
-        this.BookNumber = Number;
-        this.Issued = false;
-    }
-    public String display_book_title(){
-      return "Book Number: "+this.BookNumber+" Book Name: "+this.BookTitle;
+    public Book(String Number,String Title){
+        this.bookTitle = Title;
+        this.bookIsbn = Number;
+        this.issued = false;
     }
 
-    public void reserve_book_if_available(){
-       this.Issued = true;
+    public String displayDetails(){
+      return "Book Number: "+this.bookIsbn+" Book Name: "+this.bookTitle;
     }
-    public Boolean is_book_available(){
-        return this.Issued;
+
+    public Book getBookUsingBookIsbn(String bookIsbn){
+        if(this.bookIsbn == bookIsbn)
+            return this;
+        else
+            return null;
+    }
+    public void reserve(){
+       this.issued = true;
+    }
+    public Boolean isBookReserved(){
+        return this.issued;
     }
 
 }
