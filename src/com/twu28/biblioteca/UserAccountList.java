@@ -20,7 +20,8 @@ public class UserAccountList {
 
     }
 
-    public Boolean authenticateUser(UserAccount userAccount){
+    public Boolean authenticateUser(String userName,String password){
+        UserAccount userAccount = new UserAccount(userName,password);
 
         for( int i=0;i<userAccounts.size();i++){
             if(this.userAccounts.contains(userAccount))
