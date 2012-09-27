@@ -1,78 +1,53 @@
 package com.twu28.biblioteca;
 
-import static java.lang.System.exit;
+import java.util.HashMap;
 
 public class Mainprogram {
 
-    inputoutputinterface inputoutputinterface = new userinputstub();
-    Display display = new Display();
-    BookManager bookManager = new BookManager();
-    AccountManager accountManager = new AccountManager();
+    static BookList bookList = new BookList();
+    static Console console = new ConsoleStub();
+    static HashMap<String,Runnable> optionMap = new HashMap<String, Runnable>();
 
-    public void main(String[] args) {
-        bookManager.addnew(new Book(1,"First Book"));
-        bookManager.addnew(new Book(2,"Second Book"));
-        bookManager.addnew(new Book(3, "Third Book"));
+    public static void main(String[] args) {
+        bookList.addNew(new Book("1","First Book"));
+        bookList.addNew(new Book("2", "Second Book"));
+        bookList.addNew(new Book("3", "Third Book"));
 
-        display.print_welcome();
-        display.print_menu();
-        executelogic();
+        printWelcome();
+        printMenu();
 
-    }
-
-    public void executelogic() {
-        int choice = Integer.parseInt(inputoutputinterface.getoption());
-        if(choice==1){
-            display.print_display_books_first_line();
-            display.display_of_books(bookManager);
-        }
-
-        else if(choice==2){
-            UserAccount userAccount = perform_login();
-            if(userAccount!=null){
-                display.display_of_books(bookManager);
-                display.reserve_book_first_line();
-                String book_to_reserved = inputoutputinterface.readLine();
-                Book book = new Book(book_to_reserved);
-                if(display.reserve_book(book,bookManager))
-                    inputoutputinterface.println("Thank You!Enjoy The Book");
-                else
-                    inputoutputinterface.println("Sorry!We Dont Have That Book Yet");
-
-            }
-            else
-                inputoutputinterface.println("Please Login First");
-
-        }
-
-        else if(choice==3){
-            UserAccount userAccount = perform_login();
-            if(userAccount!=null){
-                inputoutputinterface.println("Your Name :"+userAccount.Name+"\nYour Email Id :"+userAccount.EmailId+"\nYour Phone Number :"+userAccount.PhoneNumber);
-            }
-            else{
-                display.check_library_number();
-
-            }
-        }
+        String option = console.readLine();
+        initializeOptions();
+        Runnable task = optionMap.get(option);
+        if(task!=null)
+            task.run();
         else
-            exit(0);
+            console.println("Wrong input");
+
     }
 
-    public UserAccount perform_login() {
+    public static void initializeOptions() {
+        optionMap.put("1",ExecuteMenuOptions.PrintListOfBooks);
+        optionMap.put("2",ExecuteMenuOptions.ReserveBook);
+        optionMap.put("3",ExecuteMenuOptions.PrintListOfMovies);
+        optionMap.put("4",ExecuteMenuOptions.PrintUserDetails);
+        optionMap.put("5",ExecuteMenuOptions.OptionToExit);
+    }
 
-        inputoutputinterface.println("Enter Your Library Number");
-        String UserName = inputoutputinterface.readLine();
-        inputoutputinterface.println("Enter Your Password");
-        String PassWord = inputoutputinterface.readLine();
-        if(accountManager.check_valid_user(new UserAccount(UserName,PassWord)))
-            return new UserAccount(UserName,PassWord);
-        else
-            return null;
+    public static void printWelcome() {
+        console.println("WELCOME TO THE BANGALORE PUBLIC LIBRARY");
+    }
+
+    public static void printMenu() {
+
+        console.println("Select An Option");
+        console.println("1:View List Of Books");
+        console.println("2:Reserve A Book");
+        console.println("3:View List Of Movies");
+        console.println("4:Check Library Number");
+        console.println("5:Exit");
     }
 
 
-    public void setInputoutputinterface(inputoutputinterface inputoutputinterface){
-        this.inputoutputinterface = inputoutputinterface;
-    }
+
 }
