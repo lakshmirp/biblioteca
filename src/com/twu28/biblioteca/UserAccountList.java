@@ -8,10 +8,10 @@ public class UserAccountList {
     private ArrayList<UserAccount> userAccounts = new ArrayList<UserAccount>();
 
     UserAccountList(){
-        add_users();
+        addUsers();
     }
 
-    private void add_users(){
+    private void addUsers(){
             userAccounts.add(new UserAccount("111-1111","pass1"));
             userAccounts.add(new UserAccount("111-1112","pass2"));
             userAccounts.add(new UserAccount("111-1113","pass3"));
@@ -19,6 +19,7 @@ public class UserAccountList {
             userAccounts.add(new UserAccount("111-1115","pass5"));
 
     }
+
 
     public Boolean authenticateUser(String userName,String password){
         UserAccount userAccount = new UserAccount(userName,password);
@@ -28,5 +29,6 @@ public class UserAccountList {
                 return true;
         }
         return false;
+
     }
 }
