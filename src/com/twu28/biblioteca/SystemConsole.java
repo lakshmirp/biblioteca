@@ -3,7 +3,7 @@ package com.twu28.biblioteca;
 
 import java.util.Scanner;
 
-public class UserConsole implements Console{
+public class SystemConsole implements Console{
     Scanner scanner = new Scanner(System.in);
 
 
