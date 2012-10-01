@@ -2,7 +2,7 @@ package com.twu28.biblioteca;
 
 public class PrintBookListCommand implements Command {
 
-    Console console = new UserConsole();
+    Console console = new SystemConsole();
     BookList bookList = new BookList();
 
     @Override

@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Mainprogram {
 
     static BookList bookList = new BookList();
-    static Console console = new UserConsole();
+    static Console console = new SystemConsole();
     static HashMap<String,Command> optionMap = new HashMap<String,Command>();
 
 

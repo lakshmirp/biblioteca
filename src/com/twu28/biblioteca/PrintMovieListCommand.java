@@ -2,7 +2,7 @@ package com.twu28.biblioteca;
 
 
 public class PrintMovieListCommand implements Command {
-    Console console = new UserConsole();
+    Console console = new SystemConsole();
     MovieList movieList = new MovieList();
     @Override
     public void execute() {

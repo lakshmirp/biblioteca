@@ -2,7 +2,7 @@ package com.twu28.biblioteca;
 
 public class PrintUserDetailsCommand implements Command {
     UserAccountList userAccountList = new UserAccountList();
-    Console console = new UserConsole();
+    Console console = new SystemConsole();
     UserAccount userAccount;
     String username = null;
     String password = null;

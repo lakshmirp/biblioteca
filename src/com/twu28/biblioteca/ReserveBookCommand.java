@@ -2,7 +2,7 @@ package com.twu28.biblioteca;
 
 public class ReserveBookCommand implements Command {
     UserAccountList userAccountList = new UserAccountList();
-    Console console = new UserConsole();
+    Console console = new SystemConsole();
     BookList bookList = new BookList();
     String username = null;
     String password = null;

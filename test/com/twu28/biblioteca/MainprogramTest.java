@@ -12,7 +12,7 @@ public class MainprogramTest {
 
     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     Mainprogram mainprogram = new Mainprogram();
-    Console console = new UserConsole();
+    Console console = new SystemConsole();
     static HashMap<String,Command> options = new HashMap<String,Command>();
 
     @Test
