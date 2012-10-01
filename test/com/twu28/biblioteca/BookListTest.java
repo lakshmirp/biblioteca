@@ -30,16 +30,16 @@ public class BookListTest {
     }
 
     @Test
-    public void test_reserve_book_when_book_not_present(){
+    public void testReserveBookWhenBookNotPresent(){
         BookList bookList = new BookList();
-        Book book = new Book("1","Book2");
         assertEquals((Object) false, bookList.reserveBook("1"));
     }
 
     @Test
-    public void test_reserve_book_which_is_already_reserved(){
+    public void testReserveBookWhichIsAlreadyReserved(){
         BookList bookList = new BookList();
         Book book = new Book("1","Book");
+        bookList.addNew(book);
         bookList.reserveBook("1");
         assertEquals((Object) false, bookList.reserveBook("1"));
     }

@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 public class UserAccountList {
 
-    private ArrayList<UserAccount> userAccounts = new ArrayList<UserAccount>();
+    public static ArrayList<UserAccount> userAccounts = new ArrayList<UserAccount>();
 
     UserAccountList(){
         addUsers();
     }
+    private static void addUsers(){
 
-    private void addUsers(){
             userAccounts.add(new UserAccount("111-1111","pass1"));
             userAccounts.add(new UserAccount("111-1112","pass2"));
             userAccounts.add(new UserAccount("111-1113","pass3"));
@@ -21,14 +21,12 @@ public class UserAccountList {
     }
 
 
-    public Boolean authenticateUser(String userName,String password){
+    public Boolean authenticate(String userName,String password){
         UserAccount userAccount = new UserAccount(userName,password);
 
-        for( int i=0;i<userAccounts.size();i++){
-            if(this.userAccounts.contains(userAccount))
-                return true;
-        }
-        return false;
+            return this.userAccounts.contains(userAccount);
 
     }
+
+
 }

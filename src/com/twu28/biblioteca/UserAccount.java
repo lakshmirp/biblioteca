@@ -13,21 +13,20 @@ public class UserAccount {
         this.password = passwd;
     }
 
-    public String getName(){
-        return name;
+
+    public String toString(){
+        return "Your Library Number:"+this.libraryNumber+"\nYour Password:"+this.password+"\nYour Name:"+this.name+"\nYour EmailId:"+this.emailId+"\nYour Phone Number:"+this.phoneNumber+"\n";
     }
 
-    public String getEmailId(){
-        return emailId;
-    }
+    @Override
+    public boolean equals(Object object){
 
-    public String getPhoneNumber(){
-        return phoneNumber;
+       if(this == object)
+           return true;
+       if(object == null || object.getClass() != this.getClass())
+           return false;
+       UserAccount userAccount = (UserAccount)object;
+        return userAccount.libraryNumber.equals(this.libraryNumber) && userAccount.password.equals(this.password) ;
     }
-
-    public String returnUserDetails(){
-        return this.libraryNumber+"\t"+this.password+"\t"+this.name+"\t"+this.emailId+"\t"+this.phoneNumber+"\n";
-    }
-
 
 }

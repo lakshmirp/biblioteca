@@ -6,12 +6,14 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.HashMap;
 
 public class MainprogramTest {
 
     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     Mainprogram mainprogram = new Mainprogram();
     Console console = new UserConsole();
+    static HashMap<String,Command> options = new HashMap<String,Command>();
 
     @Test
     public void testPrintWelcome(){
@@ -31,14 +33,15 @@ public class MainprogramTest {
 
     @Test
     public void testInitializeOptions(){
+        options.put("1",new PrintBookListCommand());
+        options.put("2",new ReserveBookCommand());
+        options.put("3",new PrintMovieListCommand());
+        options.put("4",new PrintUserDetailsCommand());
+        options.put("5",new ExitCommand());
         mainprogram.setConsole(console);
         System.setOut(new PrintStream(outputStream));
         Mainprogram.initializeOptions();
-        Assert.assertEquals(true,Mainprogram.optionMap.containsValue(ExecuteMenuOptions.PrintListOfBooks));
-        Assert.assertEquals(true,Mainprogram.optionMap.containsValue(ExecuteMenuOptions.ReserveBook));
-        Assert.assertEquals(true,Mainprogram.optionMap.containsValue(ExecuteMenuOptions.PrintListOfMovies));
-        Assert.assertEquals(true,Mainprogram.optionMap.containsValue(ExecuteMenuOptions.PrintUserDetails));
-        Assert.assertEquals(true,Mainprogram.optionMap.containsValue(ExecuteMenuOptions.OptionToExit));
+        Assert.assertEquals(options.keySet(),Mainprogram.optionMap.keySet());
     }
 
 }

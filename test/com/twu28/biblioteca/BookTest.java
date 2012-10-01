@@ -8,20 +8,31 @@ public class BookTest {
     @Test
     public void testDisplayDetails() {
         Book book = new Book("1","Programming With C++");
-        Assert.assertEquals("Book Number: 1 Book Name: Programming With C++",book.displayDetails());
+        Assert.assertEquals("1\tProgramming With C++",book.toString());
     }
 
     @Test
-    public void testIsBookAvailableForReservation(){
-        Book book = new Book("1","Complete Reference - Java");
-        Assert.assertEquals((Object) false,book.isBookReserved());
+    public void testBookExists(){
+        Book book = new Book("1","First Book");
+        Assert.assertEquals(true,book.bookExists("1"));
     }
 
     @Test
-    public void testReserveBook(){
+    public void testBookDoesNotExist(){
+        Book book = new Book("1","Book1");
+        Assert.assertEquals(false,book.bookExists("2"));
+    }
+    @Test
+    public void testSuccessfulReserveBook(){
         Book book = new Book("1","Book 1");
+        Assert.assertEquals((Object) true,book.reserve());
+    }
+
+    @Test
+    public void testUnsuccessfulReserveBook(){
+        Book book = new Book("1","Book");
         book.reserve();
-        Assert.assertEquals((Object) true,book.isBookReserved());
+        Assert.assertEquals((Object) false,book.reserve());
     }
 
 }

@@ -5,36 +5,31 @@ import java.util.HashMap;
 public class Mainprogram {
 
     static BookList bookList = new BookList();
-    static Console console = new FakeConsole();
-    static HashMap<String,Runnable> optionMap = new HashMap<String, Runnable>();
-
+    static Console console = new UserConsole();
+    static HashMap<String,Command> optionMap = new HashMap<String,Command>();
 
 
     public static void main(String[] args) {
         bookList.addNew(new Book("1","First Book"));
         bookList.addNew(new Book("2", "Second Book"));
         bookList.addNew(new Book("3", "Third Book"));
-
+        while(true){
         printWelcome();
 
         printMenu();
 
         String option = console.readLine();
         initializeOptions();
-        Runnable task = optionMap.get(option);
-        if(task!=null)
-            task.run();
-        else
-            console.println("Wrong input");
-
+        optionMap.get(option).execute();
+        }
     }
 
     public static void initializeOptions() {
-        optionMap.put("1",ExecuteMenuOptions.PrintListOfBooks);
-        optionMap.put("2",ExecuteMenuOptions.ReserveBook);
-        optionMap.put("3",ExecuteMenuOptions.PrintListOfMovies);
-        optionMap.put("4",ExecuteMenuOptions.PrintUserDetails);
-        optionMap.put("5",ExecuteMenuOptions.OptionToExit);
+        optionMap.put("1",new PrintBookListCommand());
+        optionMap.put("2",new ReserveBookCommand());
+        optionMap.put("3",new PrintMovieListCommand());
+        optionMap.put("4",new PrintUserDetailsCommand());
+        optionMap.put("5",new ExitCommand());
     }
 
     public static void printWelcome() {
@@ -51,8 +46,8 @@ public class Mainprogram {
         console.println("5:Exit");
     }
 
-    public void setConsole(Console console){
-        this.console = console;
+    public static void setConsole(Console console){
+        Mainprogram.console = console;
     }
 
 }

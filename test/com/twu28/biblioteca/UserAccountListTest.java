@@ -9,25 +9,25 @@ public class UserAccountListTest {
     @Test
     public void testAddUserAccounts(){
         UserAccountList userAccountList = new UserAccountList();
-        Assert.assertEquals((Object) true,userAccountList.authenticateUser("111-1111","pass1"));
+        Assert.assertEquals((Object) true,userAccountList.authenticate("111-1111","pass1"));
     }
 
     @Test
     public void testLegitimateUser(){
         UserAccountList userAccountList = new UserAccountList();
-        Assert.assertEquals((Object) true,userAccountList.authenticateUser("111-1111","pass1"));
+        Assert.assertEquals((Object) true,userAccountList.authenticate("111-1111","pass1"));
     }
 
     @Test
-    public void testInvalidPassword(){
+    public void testUnsuccessfulAuthenticationInvalidPassword(){
         UserAccountList userAccountList = new UserAccountList();
-        Assert.assertEquals((Object) false,userAccountList.authenticateUser("111-1111","pass1"));
+        Assert.assertEquals((Object) false,userAccountList.authenticate("111-1111","pass5"));
     }
 
     @Test
-    public void testInvalidUsername(){
+    public void testUnsuccessfulAuthenticationInvalidUsername(){
         UserAccountList userAccountList = new UserAccountList();
-        Assert.assertEquals((Object) false,userAccountList.authenticateUser("111-1111","pass1"));
+        Assert.assertEquals((Object) false,userAccountList.authenticate("555-1111","pass1"));
     }
 
 
